@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  vue-app--1:
+    image: yatharthchauhan2024/vue:latest
+    ports:
+      - "8081:8080"

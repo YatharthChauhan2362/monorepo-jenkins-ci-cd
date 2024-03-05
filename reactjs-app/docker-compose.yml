@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  react-app:
+    image: yatharthchauhan2024/yc-app-jenkins:react-docker-img
+    ports:
+      - "3001:3000"
+

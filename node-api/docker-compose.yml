@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  node-api:
+    image: yatharthchauhan2024/node-api:latest
+    ports:
+      - "3003:3003"

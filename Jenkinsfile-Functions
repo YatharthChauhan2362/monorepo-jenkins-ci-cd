@@ -1,0 +1,41 @@
+@Library("hello-library") _
+
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'Server', choices: ['React', 'Nextjs', 'Node API', 'Vue', 'Python'])
+    }
+
+    stages {
+        stage('Running Shared Library') {
+            steps {
+                clonerepo()
+            }
+        }
+
+        stage('Build and Deploy') {
+            when {
+                expression {
+                    params.Server in ['React', 'Nextjs', 'Node API', 'Vue', 'Python']
+                }
+            }
+            steps {
+                script {
+                    if (params.Server == 'React') {
+                        reactfunc()
+                    } else if (params.Server == 'Nextjs') {
+                        nextjsfunc()
+                    } else if (params.Server == 'Node API') {
+                        nodeapifunc()
+                    } else if (params.Server == 'Vue') {
+                        vuefunc()
+                    } else if (params.Server == 'Python') {
+                        pythonfunc()
+                    }
+
+                }
+            }
+        }
+    }
+}

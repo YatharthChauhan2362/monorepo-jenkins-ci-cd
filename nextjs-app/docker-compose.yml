@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  node-app:
+    image: yatharthchauhan2024/nextjs:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
